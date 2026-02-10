@@ -1,0 +1,83 @@
+{
+  "general": [
+    "Beaker (various sizes)",
+    "Erlenmeyer flask",
+    "Graduated cylinder",
+    "Glass stirring rod",
+    "Watch glass",
+    "Wash bottle with distilled water",
+    "Lab wipes",
+    "Waste container"
+  ],
+  "acid_base": [
+    "Burette (50 mL)",
+    "Burette clamp and stand",
+    "Erlenmeyer flask (250 mL)",
+    "Beaker (250 mL)",
+    "Graduated cylinder (10 mL)",
+    "pH indicator solution or pH meter",
+    "Wash bottle with distilled water",
+    "White tile (for color observation)",
+    "Waste container"
+  ],
+  "precipitation": [
+    "Test tubes and rack",
+    "Beaker (250 mL)",
+    "Filter funnel and filter paper",
+    "Ring stand and iron ring",
+    "Graduated cylinder",
+    "Wash bottle with distilled water",
+    "Waste container"
+  ],
+  "redox": [
+    "Beakers (various sizes)",
+    "Voltmeter/multimeter (for electrochemistry)",
+    "Wire leads with alligator clips",
+    "Salt bridge or porous cup",
+    "Electrode metals",
+    "Graduated cylinder",
+    "Wash bottle with distilled water",
+    "Waste container"
+  ],
+  "combustion": [
+    "Crucible and lid",
+    "Clay triangle",
+    "Ring stand and iron ring",
+    "Bunsen burner",
+    "Striker/lighter",
+    "Tongs",
+    "Heat-proof mat",
+    "Balance (0.01g precision)",
+    "Desiccator"
+  ],
+  "synthesis": [
+    "Round-bottom flask",
+    "Reflux condenser",
+    "Hot plate or heating mantle",
+    "Magnetic stirrer and stir bar",
+    "Clamp and stand",
+    "Thermometer",
+    "Graduated cylinder",
+    "Balance (0.01g precision)",
+    "Vacuum filtration setup"
+  ],
+  "decomposition": [
+    "Test tube (Pyrex)",
+    "Test tube holder/clamp",
+    "Bunsen burner",
+    "Delivery tube and rubber stopper",
+    "Pneumatic trough",
+    "Tongs",
+    "Heat-proof mat",
+    "Safety screen"
+  ],
+  "gas_collection": [
+    "Gas collection tube",
+    "Pneumatic trough",
+    "Delivery tube and rubber stopper",
+    "Beehive shelf",
+    "Test tube or flask for reaction",
+    "Bunsen burner (if heating needed)",
+    "Splint (for testing gases)"
+  ]
+}

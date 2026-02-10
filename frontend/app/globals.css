@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+
+  * {
+    border-color: theme('colors.gray.200');
+  }
+
+  body {
+    @apply bg-white text-gray-900;
+  }
+}
+
+.equation-display sub {
+  font-size: 0.75em;
+  vertical-align: sub;
+}

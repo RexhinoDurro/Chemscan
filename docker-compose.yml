@@ -1,0 +1,80 @@
+
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  chemistry:
+    build: ./backend-chemistry
+    ports:
+      - "8001:8001"
+    environment:
+      REDIS_URL: ${REDIS_URL}
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  ai:
+    build: ./backend-ai
+    ports:
+      - "3500:3001"
+    environment:
+      GEMINI_API_KEY: ${GEMINI_API_KEY}
+      REDIS_URL: ${REDIS_URL}
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  django:
+    build: ./backend-django
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
+      DJANGO_DEBUG: ${DJANGO_DEBUG}
+      DJANGO_ALLOWED_HOSTS: ${DJANGO_ALLOWED_HOSTS}
+      REDIS_URL: ${REDIS_URL}
+      CHEMISTRY_SERVICE_URL: ${CHEMISTRY_SERVICE_URL}
+      AI_SERVICE_URL: ${AI_SERVICE_URL}
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "4000:3000"
+    environment:
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
+      NEXT_PUBLIC_CHEMISTRY_URL: ${NEXT_PUBLIC_CHEMISTRY_URL}
+      NEXT_PUBLIC_AI_URL: ${NEXT_PUBLIC_AI_URL}
+    depends_on:
+      - django
+      - chemistry
+      - ai
+
+volumes:
+  postgres_data:

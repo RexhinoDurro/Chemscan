@@ -1,0 +1,540 @@
+{
+  "compounds": {
+    "HCl": {
+      "name": "Hydrochloric Acid",
+      "formula": "HCl",
+      "ghs_categories": ["Corrosive", "Acute Toxicity"],
+      "hazard_statements": ["Causes severe skin burns and eye damage", "Toxic if inhaled"],
+      "precautions": ["Use in fume hood", "Avoid contact with skin and eyes", "Do not breathe vapors"],
+      "severity": "red",
+      "ppe_required": ["safety_goggles", "chemical_gloves", "lab_coat", "fume_hood"]
+    },
+    "H2SO4": {
+      "name": "Sulfuric Acid",
+      "formula": "H2SO4",
+      "ghs_categories": ["Corrosive", "Oxidizer"],
+      "hazard_statements": ["Causes severe skin burns and eye damage", "Highly exothermic when diluted"],
+      "precautions": ["Always add acid to water, never water to acid", "Use in fume hood", "Handle with extreme care"],
+      "severity": "red",
+      "ppe_required": ["safety_goggles", "face_shield", "chemical_gloves", "lab_coat", "fume_hood"]
+    },
+    "HNO3": {
+      "name": "Nitric Acid",
+      "formula": "HNO3",
+      "ghs_categories": ["Corrosive", "Oxidizer", "Acute Toxicity"],
+      "hazard_statements": ["Causes severe skin burns", "Strong oxidizer", "Toxic fumes"],
+      "precautions": ["Use in fume hood", "Keep away from organic materials", "Avoid contact with metals"],
+      "severity": "red",
+      "ppe_required": ["safety_goggles", "face_shield", "chemical_gloves", "lab_coat", "fume_hood"]
+    },
+    "NaOH": {
+      "name": "Sodium Hydroxide",
+      "formula": "NaOH",
+      "ghs_categories": ["Corrosive"],
+      "hazard_statements": ["Causes severe skin burns and eye damage"],
+      "precautions": ["Avoid contact with skin and eyes", "Handle with care"],
+      "severity": "amber",
+      "ppe_required": ["safety_goggles", "chemical_gloves", "lab_coat"]
+    },
+    "KOH": {
+      "name": "Potassium Hydroxide",
+      "formula": "KOH",
+      "ghs_categories": ["Corrosive"],
+      "hazard_statements": ["Causes severe skin burns and eye damage"],
+      "precautions": ["Avoid contact with skin and eyes"],
+      "severity": "amber",
+      "ppe_required": ["safety_goggles", "chemical_gloves", "lab_coat"]
+    },
+    "NaCl": {
+      "name": "Sodium Chloride",
+      "formula": "NaCl",
+      "ghs_categories": [],
+      "hazard_statements": ["Generally recognized as safe"],
+      "precautions": ["Standard laboratory precautions"],
+      "severity": "green",
+      "ppe_required": ["safety_goggles", "lab_coat"]
+    },
+    "H2O": {
+      "name": "Water",
+      "formula": "H2O",
+      "ghs_categories": [],
+      "hazard_statements": ["Not hazardous"],
+      "precautions": ["No special precautions required"],
+      "severity": "green",
+      "ppe_required": ["safety_goggles"]
+    },
+    "H2O2": {
+      "name": "Hydrogen Peroxide",
+      "formula": "H2O2",
+      "ghs_categories": ["Oxidizer", "Corrosive", "Acute Toxicity"],
+      "hazard_statements": ["Strong oxidizer", "Causes burns at high concentrations", "May cause fire"],
+      "precautions": ["Keep away from combustible materials", "Use in fume hood at high concentrations"],
+      "severity": "amber",
+      "ppe_required": ["safety_goggles", "chemical_gloves", "lab_coat"]
+    },
+    "NH3": {
+      "name": "Ammonia",
+      "formula": "NH3",
+      "ghs_categories": ["Acute Toxicity", "Corrosive", "Environmental Hazard"],
+      "hazard_statements": ["Toxic if inhaled", "Causes severe skin burns", "Very toxic to aquatic life"],
+      "precautions": ["Use in fume hood", "Avoid breathing vapors"],
+      "severity": "red",
+      "ppe_required": ["safety_goggles", "chemical_gloves", "lab_coat", "fume_hood"]
+    },
+    "CH3OH": {
+      "name": "Methanol",
+      "formula": "CH3OH",
+      "ghs_categories": ["Flammable", "Acute Toxicity"],
+      "hazard_statements": ["Highly flammable", "Toxic if swallowed, inhaled, or absorbed through skin", "May cause blindness"],
+      "precautions": ["Keep away from open flames", "Use in well-ventilated area", "Avoid ingestion"],
+      "severity": "red",
+      "ppe_required": ["safety_goggles", "chemical_gloves", "lab_coat", "fume_hood"]
+    },
+    "C2H5OH": {
+      "name": "Ethanol",
+      "formula": "C2H5OH",
+      "ghs_categories": ["Flammable"],
+      "hazard_statements": ["Highly flammable liquid and vapor"],
+      "precautions": ["Keep away from open flames", "Use in well-ventilated area"],
+      "severity": "amber",
+      "ppe_required": ["safety_goggles", "lab_coat"]
+    },
+    "CH3COOH": {
+      "name": "Acetic Acid",
+      "formula": "CH3COOH",
+      "ghs_categories": ["Corrosive", "Flammable"],
+      "hazard_statements": ["Causes severe skin burns", "Flammable liquid"],
+      "precautions": ["Use in fume hood", "Avoid contact with skin"],
+      "severity": "amber",
+      "ppe_required": ["safety_goggles", "chemical_gloves", "lab_coat", "fume_hood"]
+    },
+    "Mg": {
+      "name": "Magnesium",
+      "formula": "Mg",
+      "ghs_categories": ["Flammable"],
+      "hazard_statements": ["Highly flammable solid", "Reacts with water"],
+      "precautions": ["Keep away from water", "Use dry sand to extinguish fires", "Keep away from open flames"],
+      "severity": "amber",
+      "ppe_required": ["safety_goggles", "lab_coat", "heat_resistant_gloves"]
+    },
+    "Na": {
+      "name": "Sodium",
+      "formula": "Na",
+      "ghs_categories": ["Flammable", "Corrosive", "Water-Reactive"],
+      "hazard_statements": ["Reacts violently with water", "Highly flammable", "Causes severe burns"],
+      "precautions": ["Store under mineral oil", "Keep away from water", "Handle with dry tools"],
+      "severity": "red",
+      "ppe_required": ["safety_goggles", "face_shield", "heat_resistant_gloves", "lab_coat"]
+    },
+    "K": {
+      "name": "Potassium",
+      "formula": "K",
+      "ghs_categories": ["Flammable", "Corrosive", "Water-Reactive"],
+      "hazard_statements": ["Reacts violently with water", "Highly flammable", "Causes severe burns"],
+      "precautions": ["Store under mineral oil", "Keep away from water"],
+      "severity": "red",
+      "ppe_required": ["safety_goggles", "face_shield", "heat_resistant_gloves", "lab_coat"]
+    },
+    "Fe": {
+      "name": "Iron",
+      "formula": "Fe",
+      "ghs_categories": [],
+      "hazard_statements": ["Generally safe in solid form"],
+      "precautions": ["Standard laboratory precautions"],
+      "severity": "green",
+      "ppe_required": ["safety_goggles", "lab_coat"]
+    },
+    "Cu": {
+      "name": "Copper",
+      "formula": "Cu",
+      "ghs_categories": [],
+      "hazard_statements": ["Generally safe in solid form"],
+      "precautions": ["Standard laboratory precautions"],
+      "severity": "green",
+      "ppe_required": ["safety_goggles", "lab_coat"]
+    },
+    "Zn": {
+      "name": "Zinc",
+      "formula": "Zn",
+      "ghs_categories": ["Environmental Hazard"],
+      "hazard_statements": ["Very toxic to aquatic life"],
+      "precautions": ["Dispose of properly", "Do not release to environment"],
+      "severity": "green",
+      "ppe_required": ["safety_goggles", "lab_coat"]
+    },
+    "CuSO4": {
+      "name": "Copper Sulfate",
+      "formula": "CuSO4",
+      "ghs_categories": ["Acute Toxicity", "Environmental Hazard"],
+      "hazard_statements": ["Harmful if swallowed", "Causes eye irritation", "Very toxic to aquatic life"],
+      "precautions": ["Avoid ingestion", "Wear eye protection", "Dispose of properly"],
+      "severity": "amber",
+      "ppe_required": ["safety_goggles", "chemical_gloves", "lab_coat"]
+    },
+    "AgNO3": {
+      "name": "Silver Nitrate",
+      "formula": "AgNO3",
+      "ghs_categories": ["Corrosive", "Oxidizer", "Environmental Hazard"],
+      "hazard_statements": ["Causes skin and eye burns", "Stains skin", "Oxidizer"],
+      "precautions": ["Avoid skin contact", "Wear gloves", "Causes permanent brown stains"],
+      "severity": "amber",
+      "ppe_required": ["safety_goggles", "chemical_gloves", "lab_coat"]
+    },
+    "Pb(NO3)2": {
+      "name": "Lead(II) Nitrate",
+      "formula": "Pb(NO3)2",
+      "ghs_categories": ["Acute Toxicity", "Reproductive Toxicity", "Environmental Hazard", "Oxidizer"],
+      "hazard_statements": ["Toxic if swallowed or inhaled", "May damage fertility", "Very toxic to aquatic life"],
+      "precautions": ["Avoid all contact", "Use in fume hood", "Dispose as hazardous waste"],
+      "severity": "red",
+      "ppe_required": ["safety_goggles", "chemical_gloves", "lab_coat", "fume_hood"]
+    },
+    "KMnO4": {
+      "name": "Potassium Permanganate",
+      "formula": "KMnO4",
+      "ghs_categories": ["Oxidizer", "Corrosive", "Environmental Hazard"],
+      "hazard_statements": ["Strong oxidizer", "Harmful if swallowed", "Causes burns"],
+      "precautions": ["Keep away from combustible materials", "Avoid skin contact"],
+      "severity": "amber",
+      "ppe_required": ["safety_goggles", "chemical_gloves", "lab_coat"]
+    },
+    "Cl2": {
+      "name": "Chlorine Gas",
+      "formula": "Cl2",
+      "ghs_categories": ["Acute Toxicity", "Corrosive", "Oxidizer", "Environmental Hazard"],
+      "hazard_statements": ["Fatal if inhaled", "Causes severe skin burns", "Strong oxidizer"],
+      "precautions": ["Use only in fume hood", "Have emergency procedures ready", "Never mix with ammonia"],
+      "severity": "red",
+      "ppe_required": ["safety_goggles", "face_shield", "chemical_gloves", "lab_coat", "fume_hood", "respirator"]
+    },
+    "Br2": {
+      "name": "Bromine",
+      "formula": "Br2",
+      "ghs_categories": ["Acute Toxicity", "Corrosive"],
+      "hazard_statements": ["Toxic if inhaled", "Causes severe skin burns", "Very toxic vapors"],
+      "precautions": ["Use only in fume hood", "Handle with extreme care"],
+      "severity": "red",
+      "ppe_required": ["safety_goggles", "face_shield", "chemical_gloves", "lab_coat", "fume_hood"]
+    },
+    "I2": {
+      "name": "Iodine",
+      "formula": "I2",
+      "ghs_categories": ["Acute Toxicity", "Environmental Hazard"],
+      "hazard_statements": ["Harmful if swallowed", "Causes eye irritation", "Stains skin"],
+      "precautions": ["Avoid skin contact", "Use in ventilated area"],
+      "severity": "amber",
+      "ppe_required": ["safety_goggles", "chemical_gloves", "lab_coat"]
+    },
+    "H2": {
+      "name": "Hydrogen Gas",
+      "formula": "H2",
+      "ghs_categories": ["Flammable"],
+      "hazard_statements": ["Extremely flammable gas", "May form explosive mixtures with air"],
+      "precautions": ["Keep away from ignition sources", "Use in well-ventilated area"],
+      "severity": "amber",
+      "ppe_required": ["safety_goggles", "lab_coat"]
+    },
+    "O2": {
+      "name": "Oxygen Gas",
+      "formula": "O2",
+      "ghs_categories": ["Oxidizer"],
+      "hazard_statements": ["Supports combustion", "May cause or intensify fire"],
+      "precautions": ["Keep away from flammable materials"],
+      "severity": "green",
+      "ppe_required": ["safety_goggles", "lab_coat"]
+    },
+    "CO2": {
+      "name": "Carbon Dioxide",
+      "formula": "CO2",
+      "ghs_categories": ["Asphyxiant"],
+      "hazard_statements": ["May displace oxygen in enclosed spaces"],
+      "precautions": ["Use in well-ventilated area"],
+      "severity": "green",
+      "ppe_required": ["safety_goggles"]
+    },
+    "CO": {
+      "name": "Carbon Monoxide",
+      "formula": "CO",
+      "ghs_categories": ["Flammable", "Acute Toxicity"],
+      "hazard_statements": ["Extremely flammable", "Fatal if inhaled", "Odorless - use detector"],
+      "precautions": ["Use CO detector", "Work in fume hood only", "Ensure ventilation"],
+      "severity": "red",
+      "ppe_required": ["safety_goggles", "lab_coat", "fume_hood", "co_detector"]
+    },
+    "SO2": {
+      "name": "Sulfur Dioxide",
+      "formula": "SO2",
+      "ghs_categories": ["Acute Toxicity", "Corrosive"],
+      "hazard_statements": ["Toxic if inhaled", "Causes respiratory irritation"],
+      "precautions": ["Use in fume hood", "Avoid breathing"],
+      "severity": "red",
+      "ppe_required": ["safety_goggles", "lab_coat", "fume_hood"]
+    },
+    "NO2": {
+      "name": "Nitrogen Dioxide",
+      "formula": "NO2",
+      "ghs_categories": ["Acute Toxicity", "Oxidizer", "Corrosive"],
+      "hazard_statements": ["Fatal if inhaled", "Causes severe respiratory damage", "Strong oxidizer"],
+      "precautions": ["Use only in fume hood", "Dangerous even at low concentrations"],
+      "severity": "red",
+      "ppe_required": ["safety_goggles", "lab_coat", "fume_hood", "respirator"]
+    },
+    "CH4": {
+      "name": "Methane",
+      "formula": "CH4",
+      "ghs_categories": ["Flammable"],
+      "hazard_statements": ["Extremely flammable gas"],
+      "precautions": ["Keep away from ignition sources", "Use in ventilated area"],
+      "severity": "amber",
+      "ppe_required": ["safety_goggles", "lab_coat"]
+    },
+    "C3H8": {
+      "name": "Propane",
+      "formula": "C3H8",
+      "ghs_categories": ["Flammable"],
+      "hazard_statements": ["Extremely flammable gas"],
+      "precautions": ["Keep away from ignition sources"],
+      "severity": "amber",
+      "ppe_required": ["safety_goggles", "lab_coat"]
+    },
+    "CaCO3": {
+      "name": "Calcium Carbonate",
+      "formula": "CaCO3",
+      "ghs_categories": [],
+      "hazard_statements": ["Generally recognized as safe", "May cause mild eye irritation"],
+      "precautions": ["Standard laboratory precautions"],
+      "severity": "green",
+      "ppe_required": ["safety_goggles", "lab_coat"]
+    },
+    "NaHCO3": {
+      "name": "Sodium Bicarbonate",
+      "formula": "NaHCO3",
+      "ghs_categories": [],
+      "hazard_statements": ["Generally recognized as safe"],
+      "precautions": ["Standard laboratory precautions"],
+      "severity": "green",
+      "ppe_required": ["safety_goggles"]
+    },
+    "Na2CO3": {
+      "name": "Sodium Carbonate",
+      "formula": "Na2CO3",
+      "ghs_categories": ["Irritant"],
+      "hazard_statements": ["Causes eye irritation"],
+      "precautions": ["Avoid eye contact"],
+      "severity": "green",
+      "ppe_required": ["safety_goggles", "lab_coat"]
+    },
+    "FeCl3": {
+      "name": "Iron(III) Chloride",
+      "formula": "FeCl3",
+      "ghs_categories": ["Corrosive", "Irritant"],
+      "hazard_statements": ["Causes serious eye damage", "Harmful if swallowed"],
+      "precautions": ["Avoid contact with skin and eyes"],
+      "severity": "amber",
+      "ppe_required": ["safety_goggles", "chemical_gloves", "lab_coat"]
+    },
+    "BaCl2": {
+      "name": "Barium Chloride",
+      "formula": "BaCl2",
+      "ghs_categories": ["Acute Toxicity"],
+      "hazard_statements": ["Toxic if swallowed", "Harmful if inhaled"],
+      "precautions": ["Avoid ingestion", "Wash hands after handling"],
+      "severity": "red",
+      "ppe_required": ["safety_goggles", "chemical_gloves", "lab_coat"]
+    },
+    "KI": {
+      "name": "Potassium Iodide",
+      "formula": "KI",
+      "ghs_categories": [],
+      "hazard_statements": ["Generally safe at laboratory quantities"],
+      "precautions": ["Standard laboratory precautions"],
+      "severity": "green",
+      "ppe_required": ["safety_goggles", "lab_coat"]
+    },
+    "CaCl2": {
+      "name": "Calcium Chloride",
+      "formula": "CaCl2",
+      "ghs_categories": ["Irritant"],
+      "hazard_statements": ["Causes eye irritation", "Exothermic when dissolved"],
+      "precautions": ["Avoid eye contact", "Add slowly to water"],
+      "severity": "green",
+      "ppe_required": ["safety_goggles", "lab_coat"]
+    },
+    "MgO": {
+      "name": "Magnesium Oxide",
+      "formula": "MgO",
+      "ghs_categories": [],
+      "hazard_statements": ["May cause respiratory irritation"],
+      "precautions": ["Avoid breathing dust"],
+      "severity": "green",
+      "ppe_required": ["safety_goggles", "lab_coat"]
+    },
+    "Al": {
+      "name": "Aluminum",
+      "formula": "Al",
+      "ghs_categories": ["Flammable"],
+      "hazard_statements": ["Powder is flammable", "Dust may form explosive mixture"],
+      "precautions": ["Keep powder away from ignition sources"],
+      "severity": "green",
+      "ppe_required": ["safety_goggles", "lab_coat"]
+    },
+    "Fe2O3": {
+      "name": "Iron(III) Oxide",
+      "formula": "Fe2O3",
+      "ghs_categories": [],
+      "hazard_statements": ["Generally safe"],
+      "precautions": ["Standard laboratory precautions"],
+      "severity": "green",
+      "ppe_required": ["safety_goggles", "lab_coat"]
+    },
+    "Al2O3": {
+      "name": "Aluminum Oxide",
+      "formula": "Al2O3",
+      "ghs_categories": [],
+      "hazard_statements": ["Generally safe", "Avoid breathing dust"],
+      "precautions": ["Standard laboratory precautions"],
+      "severity": "green",
+      "ppe_required": ["safety_goggles", "lab_coat"]
+    },
+    "P": {
+      "name": "Phosphorus (White)",
+      "formula": "P",
+      "ghs_categories": ["Flammable", "Acute Toxicity", "Corrosive"],
+      "hazard_statements": ["Spontaneously flammable in air", "Fatal if swallowed", "Causes severe burns"],
+      "precautions": ["Store under water", "Handle with extreme care", "Never expose to air"],
+      "severity": "red",
+      "ppe_required": ["safety_goggles", "face_shield", "chemical_gloves", "lab_coat", "fume_hood"]
+    },
+    "S": {
+      "name": "Sulfur",
+      "formula": "S",
+      "ghs_categories": ["Flammable"],
+      "hazard_statements": ["Flammable solid", "Produces toxic SO2 when burned"],
+      "precautions": ["Keep away from open flames", "Burn in fume hood only"],
+      "severity": "green",
+      "ppe_required": ["safety_goggles", "lab_coat"]
+    },
+    "C6H12O6": {
+      "name": "Glucose",
+      "formula": "C6H12O6",
+      "ghs_categories": [],
+      "hazard_statements": ["Not hazardous"],
+      "precautions": ["Standard laboratory precautions"],
+      "severity": "green",
+      "ppe_required": ["safety_goggles"]
+    },
+    "C12H22O11": {
+      "name": "Sucrose",
+      "formula": "C12H22O11",
+      "ghs_categories": [],
+      "hazard_statements": ["Not hazardous"],
+      "precautions": ["Standard laboratory precautions"],
+      "severity": "green",
+      "ppe_required": ["safety_goggles"]
+    },
+    "HF": {
+      "name": "Hydrofluoric Acid",
+      "formula": "HF",
+      "ghs_categories": ["Acute Toxicity", "Corrosive"],
+      "hazard_statements": ["Fatal if inhaled or in contact with skin", "Causes severe burns", "Penetrates skin causing deep tissue damage"],
+      "precautions": ["Specialized training required", "Have calcium gluconate gel ready", "Use in fume hood only"],
+      "severity": "red",
+      "ppe_required": ["safety_goggles", "face_shield", "hf_resistant_gloves", "lab_coat", "fume_hood"]
+    },
+    "KClO3": {
+      "name": "Potassium Chlorate",
+      "formula": "KClO3",
+      "ghs_categories": ["Oxidizer", "Acute Toxicity"],
+      "hazard_statements": ["Strong oxidizer", "May cause fire", "Harmful if swallowed"],
+      "precautions": ["Keep away from combustible materials", "Do not grind or heat with organics"],
+      "severity": "red",
+      "ppe_required": ["safety_goggles", "chemical_gloves", "lab_coat"]
+    },
+    "NaClO": {
+      "name": "Sodium Hypochlorite (Bleach)",
+      "formula": "NaClO",
+      "ghs_categories": ["Corrosive", "Environmental Hazard"],
+      "hazard_statements": ["Causes severe skin burns", "Releases chlorine gas with acids"],
+      "precautions": ["Never mix with acids", "Never mix with ammonia", "Use in ventilated area"],
+      "severity": "amber",
+      "ppe_required": ["safety_goggles", "chemical_gloves", "lab_coat"]
+    }
+  },
+  "dangerous_combinations": [
+    {
+      "compounds": ["NaClO", "NH3"],
+      "warning": "DANGER: Bleach + Ammonia produces toxic chloramine gas. Can be fatal.",
+      "severity": "red"
+    },
+    {
+      "compounds": ["NaClO", "HCl"],
+      "warning": "DANGER: Bleach + Acid produces toxic chlorine gas. Can be fatal.",
+      "severity": "red"
+    },
+    {
+      "compounds": ["NaClO", "CH3COOH"],
+      "warning": "DANGER: Bleach + Vinegar/Acid produces toxic chlorine gas.",
+      "severity": "red"
+    },
+    {
+      "compounds": ["H2O2", "CH3COOH"],
+      "warning": "WARNING: Can form peracetic acid, a strong oxidizer and irritant.",
+      "severity": "amber"
+    },
+    {
+      "compounds": ["Na", "H2O"],
+      "warning": "DANGER: Alkali metals react violently with water, producing hydrogen gas and heat. Risk of explosion.",
+      "severity": "red"
+    },
+    {
+      "compounds": ["K", "H2O"],
+      "warning": "DANGER: Potassium reacts explosively with water. Risk of fire and explosion.",
+      "severity": "red"
+    },
+    {
+      "compounds": ["H2SO4", "H2O"],
+      "warning": "CAUTION: Highly exothermic reaction. Always add acid to water, never water to acid.",
+      "severity": "amber"
+    },
+    {
+      "compounds": ["KMnO4", "H2SO4"],
+      "warning": "WARNING: Can produce explosive manganese heptoxide (Mn2O7).",
+      "severity": "red"
+    },
+    {
+      "compounds": ["KClO3", "S"],
+      "warning": "DANGER: Explosive mixture. Do not grind or heat together.",
+      "severity": "red"
+    },
+    {
+      "compounds": ["KClO3", "P"],
+      "warning": "DANGER: Explosive mixture. Extremely sensitive to friction.",
+      "severity": "red"
+    },
+    {
+      "compounds": ["HNO3", "C2H5OH"],
+      "warning": "WARNING: Concentrated nitric acid with organic solvents can cause fire or explosion.",
+      "severity": "red"
+    },
+    {
+      "compounds": ["HNO3", "CH3OH"],
+      "warning": "WARNING: Concentrated nitric acid with organic solvents can cause fire or explosion.",
+      "severity": "red"
+    },
+    {
+      "compounds": ["Cl2", "NH3"],
+      "warning": "DANGER: Produces toxic nitrogen trichloride. Risk of explosion.",
+      "severity": "red"
+    },
+    {
+      "compounds": ["H2", "O2"],
+      "warning": "CAUTION: Explosive mixture when ignited. Handle with care near flames.",
+      "severity": "amber"
+    },
+    {
+      "compounds": ["Cl2", "H2"],
+      "warning": "DANGER: Explosive mixture in presence of light or ignition source.",
+      "severity": "red"
+    }
+  ]
+}
