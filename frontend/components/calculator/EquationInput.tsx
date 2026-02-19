@@ -45,11 +45,11 @@ export function EquationInput({ onSubmit, isLoading, initialValue = '' }: Equati
               className="text-lg font-mono"
               disabled={isLoading}
             />
-            {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
+            {error && <p className="text-red-400 text-sm mt-1">{error}</p>}
           </div>
-          <div className="flex gap-2 text-xs text-gray-500">
-            <span>Use <code className="bg-gray-100 px-1 rounded">-&gt;</code> between reactants and products</span>
-            <span>Use <code className="bg-gray-100 px-1 rounded">+</code> between compounds</span>
+          <div className="flex gap-2 text-xs text-gray-400">
+            <span>Use <code className="bg-white/10 px-1 rounded">-&gt;</code> between reactants and products</span>
+            <span>Use <code className="bg-white/10 px-1 rounded">+</code> between compounds</span>
           </div>
           <Button type="submit" disabled={isLoading} className="w-full">
             {isLoading ? (

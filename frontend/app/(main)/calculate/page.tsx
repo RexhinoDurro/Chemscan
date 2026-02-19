@@ -13,8 +13,62 @@ import { balanceEquation, calculateStoichiometry, checkSafety } from '@/lib/api/
 import { saveCalculation } from '@/lib/api/django-client';
 import { useCalculationStore } from '@/lib/stores/calculationStore';
 import { useAuthStore } from '@/lib/stores/authStore';
-import { Calculator, Shield, Save, FileText, Loader2 } from 'lucide-react';
+import { Calculator, Shield, Save, FileText, Loader2, Check } from 'lucide-react';
 import type { QuantityInput, CalculationResponse, SafetyResponse } from '@/lib/types';
+
+const STEPS = [
+  { label: 'Equation', key: 'input' },
+  { label: 'Quantities', key: 'quantities' },
+  { label: 'Results', key: 'results' },
+] as const;
+
+function Stepper({ currentStep }: { currentStep: 'input' | 'quantities' | 'results' }) {
+  const stepIndex = STEPS.findIndex((s) => s.key === currentStep);
+
+  return (
+    <div className="flex items-center justify-center mb-6">
+      {STEPS.map((s, i) => {
+        const isCompleted = i < stepIndex;
+        const isCurrent = i === stepIndex;
+
+        return (
+          <div key={s.key} className="flex items-center">
+            {/* Step circle */}
+            <div className="flex flex-col items-center">
+              <div
+                className={`w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold transition-all ${
+                  isCompleted
+                    ? 'bg-primary-500 text-white glow-cyan'
+                    : isCurrent
+                    ? 'border-2 border-primary-400 text-primary-400 bg-primary-500/10'
+                    : 'border border-white/10 text-gray-500 bg-white/5'
+                }`}
+              >
+                {isCompleted ? <Check className="h-4 w-4" /> : i + 1}
+              </div>
+              <span
+                className={`text-xs mt-1.5 ${
+                  isCompleted || isCurrent ? 'text-primary-400' : 'text-gray-500'
+                }`}
+              >
+                {s.label}
+              </span>
+            </div>
+
+            {/* Connecting line */}
+            {i < STEPS.length - 1 && (
+              <div
+                className={`w-16 h-0.5 mx-2 mb-5 ${
+                  i < stepIndex ? 'bg-primary-500' : 'bg-white/10'
+                }`}
+              />
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
 
 export default function CalculatePage() {
   const router = useRouter();
@@ -81,7 +135,7 @@ export default function CalculatePage() {
         balanced_equation: balancedEq,
         input_data: { quantities },
         result_data: calcResult,
-        safety_data: safetyResult || {},
+        safety_data: safetyResult || undefined,
       });
       router.push(`/results/${saved.id}`);
     } catch {
@@ -94,12 +148,14 @@ export default function CalculatePage() {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-2">
-        <Calculator className="h-5 w-5 text-primary-600" />
-        <h1 className="text-xl font-bold">Calculate</h1>
+        <Calculator className="h-5 w-5 text-primary-400" />
+        <h1 className="text-xl font-bold text-white">Calculate</h1>
       </div>
 
+      <Stepper currentStep={step} />
+
       {error && (
-        <div className="bg-red-50 text-red-700 p-3 rounded-lg text-sm">{error}</div>
+        <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-3 rounded-lg text-sm">{error}</div>
       )}
 
       <EquationInput

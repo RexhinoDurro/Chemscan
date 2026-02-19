@@ -26,13 +26,13 @@ export function formatEquation(equation: string): string {
 export function severityColor(severity: string): string {
   switch (severity) {
     case 'red':
-      return 'bg-red-100 text-red-800 border-red-300';
+      return 'bg-red-500/10 text-red-300 border-red-500/20';
     case 'amber':
-      return 'bg-amber-100 text-amber-800 border-amber-300';
+      return 'bg-amber-500/10 text-amber-300 border-amber-500/20';
     case 'green':
-      return 'bg-green-100 text-green-800 border-green-300';
+      return 'bg-green-500/10 text-green-300 border-green-500/20';
     default:
-      return 'bg-gray-100 text-gray-800 border-gray-300';
+      return 'bg-white/5 text-gray-300 border-white/10';
   }
 }
 

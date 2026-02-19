@@ -38,7 +38,7 @@ analyzeRouter.post('/analyze-image', upload.single('image'), async (req: Request
     }
 
     // Check cache
-    const key = generateCacheKey('ocr', imageData.substring(0, 100));
+    const key = generateCacheKey('ocr', imageData.substring(0, 1000));
     const cached = await cacheGet(key);
     if (cached) {
       return res.json(cached);

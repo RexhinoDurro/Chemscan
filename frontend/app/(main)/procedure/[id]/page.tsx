@@ -53,9 +53,9 @@ export default function ProcedurePage() {
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center py-20 gap-4">
-        <Loader2 className="h-8 w-8 animate-spin text-primary-600" />
-        <p className="text-gray-500">Generating lab procedure...</p>
-        <p className="text-xs text-gray-400">This may take a few seconds</p>
+        <Loader2 className="h-8 w-8 animate-spin text-primary-500" />
+        <p className="text-gray-400">Generating lab procedure...</p>
+        <p className="text-xs text-gray-500">This may take a few seconds</p>
       </div>
     );
   }
@@ -63,7 +63,7 @@ export default function ProcedurePage() {
   if (error) {
     return (
       <div className="text-center py-20 space-y-4">
-        <p className="text-red-500">{error}</p>
+        <p className="text-red-400">{error}</p>
         <Button onClick={handleGenerate}>
           <FileText className="h-4 w-4 mr-2" /> Try Again
         </Button>
@@ -74,8 +74,8 @@ export default function ProcedurePage() {
   if (!procedure) {
     return (
       <div className="text-center py-20 space-y-4">
-        <FileText className="h-12 w-12 text-gray-300 mx-auto" />
-        <p className="text-gray-500">No procedure generated yet</p>
+        <FileText className="h-12 w-12 text-gray-600 mx-auto" />
+        <p className="text-gray-400">No procedure generated yet</p>
         <Button onClick={handleGenerate} disabled={!store.equation}>
           Generate Procedure
         </Button>
@@ -86,7 +86,7 @@ export default function ProcedurePage() {
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <h1 className="text-xl font-bold">Lab Procedure</h1>
+        <h1 className="text-xl font-bold text-white">Lab Procedure</h1>
         <ProcedureExport procedure={procedure} />
       </div>
       <ProcedureView procedure={procedure} />

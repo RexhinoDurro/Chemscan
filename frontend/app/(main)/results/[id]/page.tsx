@@ -9,7 +9,7 @@ import { StepByStep } from '@/components/calculator/StepByStep';
 import { ProcedureView } from '@/components/procedure/ProcedureView';
 import { ProcedureExport } from '@/components/procedure/ProcedureExport';
 import { getCalculation } from '@/lib/api/django-client';
-import { ArrowLeft, FileText, Loader2 } from 'lucide-react';
+import { ArrowLeft, Loader2 } from 'lucide-react';
 import type { Calculation } from '@/lib/types';
 
 export default function ResultsPage() {
@@ -31,7 +31,7 @@ export default function ResultsPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-20">
-        <Loader2 className="h-8 w-8 animate-spin text-primary-600" />
+        <Loader2 className="h-8 w-8 animate-spin text-primary-500" />
       </div>
     );
   }
@@ -39,7 +39,7 @@ export default function ResultsPage() {
   if (error || !calc) {
     return (
       <div className="text-center py-20">
-        <p className="text-red-500">{error || 'Calculation not found'}</p>
+        <p className="text-red-400">{error || 'Calculation not found'}</p>
         <Button onClick={() => router.back()} variant="outline" className="mt-4">
           <ArrowLeft className="h-4 w-4 mr-2" /> Go Back
         </Button>
@@ -53,7 +53,7 @@ export default function ResultsPage() {
         <Button onClick={() => router.back()} variant="ghost" size="icon">
           <ArrowLeft className="h-4 w-4" />
         </Button>
-        <h1 className="text-xl font-bold">Results</h1>
+        <h1 className="text-xl font-bold text-white">Results</h1>
       </div>
 
       {calc.result_data && <ResultsDisplay result={calc.result_data} />}

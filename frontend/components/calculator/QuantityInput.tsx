@@ -31,7 +31,7 @@ export function QuantityInputForm({ quantities, onChange, reactants }: QuantityI
   return (
     <div className="space-y-3">
       <div className="flex items-center justify-between">
-        <h3 className="font-medium text-sm">Input Quantities</h3>
+        <h3 className="font-medium text-sm text-gray-200">Input Quantities</h3>
         <Button type="button" variant="outline" size="sm" onClick={addRow}>
           <Plus className="h-3 w-3 mr-1" /> Add
         </Button>
@@ -42,7 +42,7 @@ export function QuantityInputForm({ quantities, onChange, reactants }: QuantityI
           <select
             value={q.formula}
             onChange={(e) => updateRow(i, 'formula', e.target.value)}
-            className="h-10 rounded-md border border-gray-300 px-2 text-sm min-w-[100px]"
+            className="h-10 rounded-md border border-white/10 bg-white/5 px-2 text-sm text-gray-100 min-w-[100px]"
           >
             {reactants.map((r) => (
               <option key={r} value={r}>{r}</option>
@@ -59,7 +59,7 @@ export function QuantityInputForm({ quantities, onChange, reactants }: QuantityI
           <select
             value={q.unit}
             onChange={(e) => updateRow(i, 'unit', e.target.value)}
-            className="h-10 rounded-md border border-gray-300 px-2 text-sm"
+            className="h-10 rounded-md border border-white/10 bg-white/5 px-2 text-sm text-gray-100"
           >
             {UNITS.map((u) => (
               <option key={u} value={u}>{u}</option>
@@ -82,7 +82,7 @@ export function QuantityInputForm({ quantities, onChange, reactants }: QuantityI
       ))}
 
       {quantities.length === 0 && (
-        <p className="text-sm text-gray-400 text-center py-4">
+        <p className="text-sm text-gray-500 text-center py-4">
           Add quantities to calculate stoichiometry
         </p>
       )}

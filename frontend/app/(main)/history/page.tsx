@@ -5,12 +5,11 @@ import { useRouter } from 'next/navigation';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { AuthGuard } from '@/components/layout/AuthGuard';
 import { getCalculations, deleteCalculation } from '@/lib/api/django-client';
 import { History, Trash2, ChevronRight, Loader2 } from 'lucide-react';
 import type { Calculation } from '@/lib/types';
 
-function HistoryContent() {
+export default function HistoryPage() {
   const router = useRouter();
   const [calculations, setCalculations] = useState<Calculation[]>([]);
   const [loading, setLoading] = useState(true);
@@ -43,7 +42,7 @@ function HistoryContent() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-20">
-        <Loader2 className="h-8 w-8 animate-spin text-primary-600" />
+        <Loader2 className="h-8 w-8 animate-spin text-primary-500" />
       </div>
     );
   }
@@ -51,15 +50,15 @@ function HistoryContent() {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-2">
-        <History className="h-5 w-5 text-primary-600" />
-        <h1 className="text-xl font-bold">History</h1>
+        <History className="h-5 w-5 text-primary-400" />
+        <h1 className="text-xl font-bold text-white">History</h1>
         <Badge variant="secondary">{total}</Badge>
       </div>
 
       {calculations.length === 0 ? (
         <div className="text-center py-20">
-          <History className="h-12 w-12 text-gray-300 mx-auto mb-4" />
-          <p className="text-gray-500">No calculations yet</p>
+          <History className="h-12 w-12 text-gray-600 mx-auto mb-4" />
+          <p className="text-gray-400">No calculations yet</p>
           <Button onClick={() => router.push('/calculate')} className="mt-4">
             Start Calculating
           </Button>
@@ -69,15 +68,15 @@ function HistoryContent() {
           {calculations.map((calc) => (
             <Card
               key={calc.id}
-              className="cursor-pointer hover:shadow-md transition-shadow"
+              className="cursor-pointer hover:border-white/20 hover:bg-white/[0.07] transition-all"
               onClick={() => router.push(`/results/${calc.id}`)}
             >
               <CardContent className="py-4 flex items-center justify-between">
                 <div className="flex-1 min-w-0">
-                  <p className="font-mono text-sm truncate">
+                  <p className="font-mono text-sm truncate text-gray-200">
                     {calc.balanced_equation || calc.equation}
                   </p>
-                  <p className="text-xs text-gray-400 mt-1">
+                  <p className="text-xs text-gray-500 mt-1">
                     {new Date(calc.created_at).toLocaleDateString(undefined, {
                       year: 'numeric', month: 'short', day: 'numeric',
                       hour: '2-digit', minute: '2-digit',
@@ -93,7 +92,7 @@ function HistoryContent() {
                   >
                     <Trash2 className="h-3 w-3 text-red-400" />
                   </Button>
-                  <ChevronRight className="h-4 w-4 text-gray-400" />
+                  <ChevronRight className="h-4 w-4 text-gray-500" />
                 </div>
               </CardContent>
             </Card>
@@ -104,7 +103,7 @@ function HistoryContent() {
               <Button variant="outline" size="sm" disabled={page <= 1} onClick={() => setPage(page - 1)}>
                 Previous
               </Button>
-              <span className="text-sm text-gray-500 py-2">Page {page}</span>
+              <span className="text-sm text-gray-400 py-2">Page {page}</span>
               <Button variant="outline" size="sm" disabled={page * 20 >= total} onClick={() => setPage(page + 1)}>
                 Next
               </Button>
@@ -113,13 +112,5 @@ function HistoryContent() {
         </div>
       )}
     </div>
-  );
-}
-
-export default function HistoryPage() {
-  return (
-    <AuthGuard>
-      <HistoryContent />
-    </AuthGuard>
   );
 }

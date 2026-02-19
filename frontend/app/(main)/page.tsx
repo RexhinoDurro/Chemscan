@@ -1,70 +1,95 @@
 'use client';
 
-import Link from 'next/link';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Camera, Calculator, BookOpen, History, FlaskConical } from 'lucide-react';
+import { useRef, useState, useCallback } from 'react';
+import { FullScreenCamera, type FullScreenCameraHandle } from '@/components/camera/FullScreenCamera';
+import { CameraControls } from '@/components/camera/CameraControls';
+import { FanOutMenu } from '@/components/camera/FanOutMenu';
+import { ResultsOverlay } from '@/components/camera/ResultsOverlay';
+import { analyzeImage } from '@/lib/api/ai-client';
+import { Loader2 } from 'lucide-react';
+import type { AnalyzeImageResponse } from '@/lib/types';
 
-const features = [
-  {
-    title: 'Scan Equation',
-    description: 'Point your camera at a handwritten equation',
-    icon: Camera,
-    href: '/scan',
-    color: 'bg-blue-50 text-blue-600',
-  },
-  {
-    title: 'Calculate',
-    description: 'Enter an equation and calculate stoichiometry',
-    icon: Calculator,
-    href: '/calculate',
-    color: 'bg-green-50 text-green-600',
-  },
-  {
-    title: 'Reaction Library',
-    description: 'Browse common reactions and examples',
-    icon: BookOpen,
-    href: '/calculate',
-    color: 'bg-purple-50 text-purple-600',
-  },
-  {
-    title: 'History',
-    description: 'View your past calculations',
-    icon: History,
-    href: '/history',
-    color: 'bg-amber-50 text-amber-600',
-  },
-];
+type ViewState = 'viewfinder' | 'analyzing' | 'results';
 
 export default function HomePage() {
-  return (
-    <div className="space-y-6">
-      <div className="text-center py-8">
-        <FlaskConical className="h-16 w-16 text-primary-600 mx-auto mb-4" />
-        <h1 className="text-3xl font-bold text-gray-900">ChemScan</h1>
-        <p className="text-gray-500 mt-2">Photomath for Chemistry</p>
-        <p className="text-sm text-gray-400 mt-1">
-          Scan equations, calculate stoichiometry, check safety hazards
-        </p>
-      </div>
+  const cameraRef = useRef<FullScreenCameraHandle>(null);
+  const [viewState, setViewState] = useState<ViewState>('viewfinder');
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [result, setResult] = useState<AnalyzeImageResponse | null>(null);
+  const [error, setError] = useState('');
 
-      <div className="grid grid-cols-2 gap-4">
-        {features.map((feature) => {
-          const Icon = feature.icon;
-          return (
-            <Link key={feature.title} href={feature.href}>
-              <Card className="h-full hover:shadow-md transition-shadow cursor-pointer">
-                <CardContent className="pt-6 text-center">
-                  <div className={`inline-flex p-3 rounded-full ${feature.color} mb-3`}>
-                    <Icon className="h-6 w-6" />
-                  </div>
-                  <h3 className="font-semibold text-sm">{feature.title}</h3>
-                  <p className="text-xs text-gray-500 mt-1">{feature.description}</p>
-                </CardContent>
-              </Card>
-            </Link>
-          );
-        })}
-      </div>
-    </div>
+  const handleAnalyze = useCallback(async (imageData: string) => {
+    setViewState('analyzing');
+    setError('');
+    setMenuOpen(false);
+    try {
+      const data = await analyzeImage(imageData);
+      setResult(data);
+      setViewState('results');
+    } catch (err: any) {
+      setError(err.response?.data?.error || 'Failed to analyze image. Please try again.');
+      setViewState('viewfinder');
+    }
+  }, []);
+
+  const handleCapture = useCallback(() => {
+    const imageData = cameraRef.current?.capture();
+    if (imageData) {
+      handleAnalyze(imageData);
+    }
+  }, [handleAnalyze]);
+
+  const handleGalleryUpload = useCallback((imageData: string) => {
+    handleAnalyze(imageData);
+  }, [handleAnalyze]);
+
+  const handleScanAgain = useCallback(() => {
+    setResult(null);
+    setViewState('viewfinder');
+    setError('');
+  }, []);
+
+  return (
+    <>
+      {/* Layer 1: Camera feed */}
+      <FullScreenCamera
+        ref={cameraRef}
+        onGalleryUpload={handleGalleryUpload}
+      />
+
+      {/* Error toast */}
+      {error && (
+        <div className="absolute top-12 left-4 right-4 z-50 bg-red-500/90 text-white text-sm px-4 py-3 rounded-xl text-center animate-fade-in">
+          {error}
+        </div>
+      )}
+
+      {/* Layer 2: Analyzing spinner */}
+      {viewState === 'analyzing' && (
+        <div className="absolute inset-0 z-40 bg-black/40 flex flex-col items-center justify-center">
+          <Loader2 className="h-10 w-10 text-white animate-spin mb-3" />
+          <p className="text-white/80 text-sm">Analyzing equation...</p>
+        </div>
+      )}
+
+      {/* Layer 3: Fan-out menu */}
+      <FanOutMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
+
+      {/* Layer 4: Camera controls (hidden during results) */}
+      {viewState !== 'results' && (
+        <CameraControls
+          onCapture={handleCapture}
+          onGalleryUpload={handleGalleryUpload}
+          onMenuToggle={() => setMenuOpen((v) => !v)}
+          isMenuOpen={menuOpen}
+          disabled={viewState === 'analyzing'}
+        />
+      )}
+
+      {/* Layer 5: Results overlay */}
+      {viewState === 'results' && result && (
+        <ResultsOverlay result={result} onScanAgain={handleScanAgain} />
+      )}
+    </>
   );
 }
