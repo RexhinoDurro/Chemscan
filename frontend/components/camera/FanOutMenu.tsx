@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { BookOpen, History, Calculator, LogOut } from 'lucide-react';
+import { User, Calculator, LogOut } from 'lucide-react';
 import { useAuthStore } from '@/lib/stores/authStore';
 
 interface FanOutMenuProps {
@@ -10,8 +10,7 @@ interface FanOutMenuProps {
 }
 
 const menuItems = [
-  { label: 'Library', icon: BookOpen, href: '/calculate' },
-  { label: 'History', icon: History, href: '/history' },
+  { label: 'Account', icon: User, href: '/account' },
   { label: 'Calculate', icon: Calculator, href: '/calculate' },
   { label: 'Logout', icon: LogOut, href: null },
 ];

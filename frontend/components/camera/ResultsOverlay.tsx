@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Badge } from '@/components/ui/badge';
 import { useCalculationStore } from '@/lib/stores/calculationStore';
-import { Camera, ArrowRight } from 'lucide-react';
+import { Camera, ArrowRight, AlertTriangle } from 'lucide-react';
 import type { AnalyzeImageResponse } from '@/lib/types';
 
 interface ResultsOverlayProps {
@@ -51,6 +51,14 @@ export function ResultsOverlay({ result, onScanAgain }: ResultsOverlayProps) {
               {(result.confidence * 100).toFixed(0)}% confidence
             </Badge>
           </div>
+
+          {/* Low confidence warning */}
+          {result.confidence < 0.5 && (
+            <div className="flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 rounded-lg px-3 py-2 mb-3">
+              <AlertTriangle className="h-4 w-4 text-amber-400 flex-shrink-0" />
+              <p className="text-xs text-amber-300">Low confidence — verify the equation or retake the photo.</p>
+            </div>
+          )}
 
           {/* Editable equation */}
           <input
