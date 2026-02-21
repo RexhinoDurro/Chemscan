@@ -9,9 +9,7 @@ const aiClient = axios.create({
 });
 
 export async function analyzeImage(imageBase64: string): Promise<AnalyzeImageResponse> {
-  const { data } = await axios.post('/api/ai/analyze-image', { image: imageBase64 }, {
-    headers: { 'Content-Type': 'application/json' },
-  });
+  const { data } = await aiClient.post('/api/ai/analyze-image', { image: imageBase64 });
   return data;
 }
 
